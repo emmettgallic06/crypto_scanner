@@ -1,8 +1,5 @@
 from polygonscan import PolygonScan
 import pandas as pd
-import eth
-import numpy as np
-import csv
 
 APIKEY = "G9JUJVPPH7N45HJGZNB69YM1Z93GM4RE83"
 address = "0x02F70172F7f490653665C9bFAc0666147c8aF1F5"

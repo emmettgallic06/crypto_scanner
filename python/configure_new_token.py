@@ -1,4 +1,3 @@
-
 import requests
 def get_access_token():
     url ='https://api.polygonscan.com/api'

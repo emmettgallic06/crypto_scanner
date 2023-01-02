@@ -1,5 +1,5 @@
-from flask import Flask,render_template, request, json
-app = Flask(__name__)
-@app.route("/")
-def main():
-    return render_template('index.html')
+import webapp
+
+if __name__ == '__main__':
+    print("Launching Crypto-Scanner...")
+    webapp.app.run()

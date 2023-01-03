@@ -8,7 +8,7 @@
         <div>
             <center class="vertical-right">
                 <h1>Crypto Scanner</h1>
-                <form action="">
+                <form action="../main.py">
                     <input type="text" name="q" class="searchbar" id="contract" placeholder="Token Contract">
                     <input type ="checkbox" id ="time" name="time" value="time">
                     <label for ="time">Time</label>
@@ -16,8 +16,10 @@
                     <label for ="timestamp">Timestamp</label>
                     <input type ="checkbox" id ="amount" name="amount" value="amount">
                     <label for ="amount">Amount</label><br>
-                    <input type="datetime-local">
-                    <input type="datetime-local"><br>
+                    <input type="datetime-local" id = "start">
+                    <input type="datetime-local" id="end">
+                    <label for ="time">Now</label>
+                    <input type ="checkbox" id ="endtimevalue" name="endtimevalue" value="amount"><br>
                     <input type="submit" value="Submit">
                 </form>
             </center>

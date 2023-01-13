@@ -27,3 +27,5 @@ df = pd.DataFrame(data)
 # Convert to CSV File
 df.to_csv('../output/results.csv', index= False, header=True)
 print(matic.get_normal_txs_by_address(address=address, startblock=0, endblock=37625559, sort="asc"))
+# print(polygonscan.get_normal_txs_by_address(address))
+# matic.get_normal_txs_by_address()

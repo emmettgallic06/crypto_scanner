@@ -7,8 +7,7 @@ add = "0x4c6348bf16FeA56F3DE86553c0653b817bca799A"
 
 data = {'hash': [],
         'time': [],
-        'value': [],
-        'function': []}
+        'value': []}
 
 with polygonscan.PolygonScan(APIKEY, False) as matic:
     f = matic.get_normal_txs_by_address(address=add, startblock=0, endblock=37625559, sort="asc")

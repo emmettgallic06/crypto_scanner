@@ -9,6 +9,7 @@ data = {'hash': [],
         'time': [],
         'value': [],
         'function': []}
+
 with polygonscan.PolygonScan(APIKEY, False) as matic:
     f = matic.get_normal_txs_by_address(address=add, startblock=0, endblock=37625559, sort="asc")
 
@@ -32,12 +33,13 @@ def get_hash_time(address):
         df.set_index('hash', inplace=True)
 
         return df
-
+print(get_hash_time(add))
 def get_unique_function(address):
     df = pd.DataFrame(f)
     return df['methodId'].unique()
 
-print(get_unique_function('0x4c6348bf16FeA56F3DE86553c0653b817bca799A'))
+
+
 def get_hx_time_by_function(address, methodId):
         # Add hash to df
         for i in range(0,len(f)):
@@ -56,6 +58,7 @@ def get_hx_time_by_function(address, methodId):
 
         return df
 # print(get_hash_time(add))
+print(get_hx_time_by_function('0x4c6348bf16FeA56F3DE86553c0653b817bca799A', '0x'))
 
 with polygonscan.PolygonScan(APIKEY, False) as matic:
     datab = matic.get_normal_txs_by_address(address=add, startblock=0, endblock=37625559, sort="asc")

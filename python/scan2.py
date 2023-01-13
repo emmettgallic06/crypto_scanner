@@ -19,19 +19,14 @@ def ts_time_switch(var):
 def get_hash_time(address):
         # Add hash to df
         for i in range(0,len(f)):
-                data['hash'].append(f[i]['hash'])
-        for i in range(0, len(f)):
-                data['value'].append(f[i]['value'])
-        for i in range(0, len(f)):
+            data['hash'].append(f[i]['hash'])
+            data['value'].append(f[i]['value'])
+            data['time'].append(ts_time_switch(f[i]['timeStamp']))
+            if 'function' not in data:
+                data['function'] =[]
             data['function'].append(f[i]['methodId'])
-        # Convert time of hash into time and add to df
-        for i in range(0,len(f)):
-                data['time'].append(ts_time_switch(f[i]['timeStamp']))
-
-
         df = pd.DataFrame(data)
         df.set_index('hash', inplace=True)
-
         return df
 print(get_hash_time(add))
 def get_unique_function(address):
@@ -59,7 +54,7 @@ def get_hx_time_by_function(address, methodId):
         return df
 # print(get_hash_time(add))
 print(get_hx_time_by_function('0x4c6348bf16FeA56F3DE86553c0653b817bca799A', '0x'))
-
+print(get_hash_time(add))
 with polygonscan.PolygonScan(APIKEY, False) as matic:
     datab = matic.get_normal_txs_by_address(address=add, startblock=0, endblock=37625559, sort="asc")
     df_schema = pd.DataFrame(datab)

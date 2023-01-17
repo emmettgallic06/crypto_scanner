@@ -1,24 +1,33 @@
-from flask import Flask,render_template, request,json,flash,redirect,url_for
+from flask import Flask, render_template, request, url_for, flash, redirect
+import scan2
+from datetime import datetime
+import api_function
+
 app =Flask(__name__)
-messages = [{'contract': 'Message One'}
-            ]
+app.config['SECRET KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
+messages = [{'contract': 'Message One'}]
+def date_format(date):
+    result = datetime.strptime(date, '%Y-%m-%dT%H:%M')
+    return result
+
 @app.route("/find", methods =('GET','POST'))
 def find():
     if request.method == 'POST':
-        contract = request.form['contract']
-        startdate = request.form['start']
-        enddate = request.form['end']
-        time = request.form['time']
-        timestamp = request.form['timestamp']
-        amount = request.form['Amount']
+        contract = request.form.get('contract')
         if not contract:
             flash('Contract is required')
         else:
             messages.append({'contract': contract})
-            return redirect(url_for('index'))
+        return scan2.get_hash_time(contract)
+    return render_template('find.html')
 
-@app.route("/")
+@app.route("/", methods = ('GET','POST'))
 def main():
+    if request.method == 'POST':
+        contract = request.form.get('contract')
+        start = request.form.get('start')
+        end = request.form.get('end')
+        return api_function.normal_transactions_by_address(contract,start,end)
     return render_template('index.html')
 
 if __name__ == "__main__":

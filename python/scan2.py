@@ -8,7 +8,7 @@ APIKEY = "G9JUJVPPH7N45HJGZNB69YM1Z93GM4RE83"
 data = {'hash': [],
         'time': [],
         'value': []}
-
+king = 0
 
 def get_ionformation(add):
     with polygonscan.PolygonScan(APIKEY, False) as matic:

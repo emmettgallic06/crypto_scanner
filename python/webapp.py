@@ -16,6 +16,19 @@ def find():
 
 @app.route("/")
 def main():
+    if request.method == 'POST':
+        contract = request.form.get('contract')
+        start = request.form.get('start')
+        end = request.form.get('end')
+        if not contract:
+            flash('Contract is required')
+        if not start:
+            flash('Start Date is required')
+        if not end:
+            flash('End Date is required')
+        else:
+            messages.append({'contract': contract})
+        return scan2.get_hash_time(contract)
     return render_template('index.html')
 
 if __name__ == "__main__":

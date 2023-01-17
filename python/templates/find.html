@@ -5,12 +5,19 @@
         <link rel="stylesheet" href="../static/css/main.css">
     </head>
     <body>
+    <div id="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/find">Find</a></li>
+        </ul>
+    </div>
+<!--   TODO: The Navbar needs to be automized across all pages-->
+
         <div>
             <center class="vertical-right">
                 <h1>Crypto Scanner</h1>
                 <form action="{{ url_for("find")}}" method="post">
-                <label for="contract">Contract: :</label>
-                <input type="text" id="contract" name="contract" placeholder="Contract">
+                <input type="text" name="contract" class="searchbar" id="contract" placeholder="Token Contract">
                 <button type="submit">Submit</button>
             </center>
         </div>

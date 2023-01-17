@@ -1,7 +1,7 @@
 import requests
 import json
 
-def get_data(self, api):
+def get_data(api):
     response = requests.get(f"{api}")
     if response.status_code == 200:
         print("sucessfully fetched the data")
@@ -22,7 +22,6 @@ def get_user_data(api, parameters):
 def formatted_print( obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
-
 
 parameters = {
     "apikey": "G9JUJVPPH7N45HJGZNB69YM1Z93GM4RE83",

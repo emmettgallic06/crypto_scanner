@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Crypto Scanner</title>
+        <link rel="stylesheet" href="../static/css/main.css">
+    </head>
+    <body>
+        <div>
+            <center class="vertical-right">
+                <h1>Crypto Scanner</h1>
+                <form action="{{ url_for("find")}}" method="post">
+                <label for="contract">Contract: :</label>
+                <input type="text" id="contract" name="contract" placeholder="Contract">
+                <button type="submit">Submit</button>
+            </center>
+        </div>
+    </body>
+</html>

@@ -17,7 +17,7 @@ def get_user_data(api, parameters):
         return formatted_print(response.json())
     else:
         print(
-            f"Hello person, there's a {response.status_code} error with your request")git 
+            f"Hello person, there's a {response.status_code} error with your request")
 
 def formatted_print( obj):
     text = json.dumps(obj, sort_keys=True, indent=4)

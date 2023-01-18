@@ -32,4 +32,4 @@ parameters = {
 
 
 api_call = get_user_data("https://api.polygonscan.com/api",parameters)
-print(api_call)
+# print(api_call)

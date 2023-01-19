@@ -20,6 +20,9 @@ def find():
             messages.append({'contract': contract})
         return scan2.get_hash_time(contract)
     return render_template('find.html')
+@app.route("/accounts", methods =('GET','POST'))
+def accounts():
+    return render_template('accounts.html')
 
 @app.route("/", methods = ('GET','POST'))
 def main():
